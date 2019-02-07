@@ -16,11 +16,13 @@ app.use(helmet());
 
 // mongo URLs
 // mongoose.connect("mongodb://localhost/local_library");
-// mongodb://devt3000:tavonga1@ds221115.mlab.com:21115/local_library
+// mongodb://Megalodon:tavonga1@ds125225.mlab.com:25225/local_library
 
 // Set up mongoose connection
 var mongoose = require("mongoose");
-var mongoDB = "mongodb://localhost/local_library";
+var mongoDB =
+  process.env.MONGODB_URI ||
+  "mongodb://Megalodon:tavonga1@ds125225.mlab.com:25225/local_library";
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
